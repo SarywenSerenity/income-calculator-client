@@ -4,21 +4,21 @@
         <div>
             <label>Payment Amount</label>
             <input type="number" name="payment" [(ngModel)]="data.payment" #payment="ngModel" required>
-            <small [hidden]="payment.pristine && !f.submitted">
+            <small [hidden]="payment.valid || (payment.pristine && !f.submitted)">
                     Payment amount is required.
                 </small>
         </div>
         <div>
             <label>Frequency</label>
             <input type="text" name="frequency" [(ngModel)]="data.frequency" #frequency="ngModel" required>
-            <small [hidden]="frequency.pristine && !f.submitted">
+            <small [hidden]="frequency.valid || (frequency.pristine && !f.submitted)">
                     Frequency is required.
                     </small>
         </div>
         <div>
             <label>Taxable Interest Amount</label>
             <input type="number" name="taxableInterest" [(ngModel)]="data.taxableInterest" #taxableInterest="ngModel" required>
-            <small [hidden]="taxableInterest.pristine && !f.submitted">
+            <small [hidden]="taxableInterest.valid || (taxableInterest.pristine && !f.submitted)">
                     Taxable Interest Amount is required.
                     </small>
         </div>
@@ -26,10 +26,26 @@
             <label>Unemployment Benefits Amount</label>
             <input type="number" name="unemploymentBenefits" [(ngModel)]="data.unemploymentBenefits" #unemploymentBenefits="ngModel"
                 required>
-            <small [hidden]="unemploymentBenefits.pristine && !f.submitted">
+            <small [hidden]="unemploymentBenefits.valid || (unemploymentBenefits.pristine && !f.submitted)">
                 Unemployment Benefits Amount is required.
                 </small>
         </div>
+
+        <div ngModelGroup="filingStatus">
+            <div>
+                <label>Primary Filing Status</label>
+                <input type="string" name="primaryStatus" [(ngModel)]="data.filingStatus.primaryStatus" #primaryStatus="ngModel" required>
+                <small [hidden]="primaryStatus.valid || (primaryStatus.pristine && !f.submitted)">
+                Primary Filing Status is required. 
+            </small>
+            </div>
+            <div>
+                <label>Check if you (or your spouse, if filing jointly) are over 65 or blind.</label>
+                <input type="checkbox" name="secondaryStatus" [(ngModel)]="data.filingStatus.secondaryStatus" #secondaryStatus="ngModel">
+            </div>
+        </div>
+
+
         <div>
             <label>Check if you can be claimed as someone's dependent.</label>
             <input type="checkbox" name="dependent" [(ngModel)]="data.dependent" #dependent="ngModel">
