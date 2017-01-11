@@ -6,5 +6,6 @@ export interface incomeData {
     filingStatus: {
         primary?: string; 
         secondary?: string;
-    }
+    },
+    dependent: boolean
 }

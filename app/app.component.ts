@@ -10,18 +10,16 @@ export class AppComponent implements OnInit {
   public data: incomeData; // our model
 
   ngOnInit() {
-    // payment: number; // required with minimum 5 characters
-    // frequency: string;
-    // taxableInterest: number;
-    // unemploymentBenefits: number;
-    // filingStatus: {
-    //   primary ?: string; // required
-    //   secondary ?: string;
-    // }
     this.data = {
-      payment: 0, 
-      frequency: 'weekly', 
-      
+      payment: null, 
+      frequency: '', 
+      taxableInterest: null, 
+      unemploymentBenefits: null, 
+      filingStatus: {
+        primary: '', 
+        secondary: ''
+      },
+      dependent: null
     }
   }
 

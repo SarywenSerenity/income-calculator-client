@@ -1,7 +1,39 @@
 <div>
     <h1>Add Data</h1>
     <form #f="ngForm" (ngSubmit)="save(f.value, f.valid)" novalidate>
-        <!-- we will place our fields here -->
+        <div>
+            <label>Payment Amount</label>
+            <input type="number" name="payment" [(ngModel)]="data.payment" #payment="ngModel" required>
+            <small [hidden]="payment.pristine && !f.submitted">
+                    Payment amount is required.
+                </small>
+        </div>
+        <div>
+            <label>Frequency</label>
+            <input type="text" name="frequency" [(ngModel)]="data.frequency" #frequency="ngModel" required>
+            <small [hidden]="frequency.pristine && !f.submitted">
+                    Frequency is required.
+                    </small>
+        </div>
+        <div>
+            <label>Taxable Interest Amount</label>
+            <input type="number" name="taxableInterest" [(ngModel)]="data.taxableInterest" #taxableInterest="ngModel" required>
+            <small [hidden]="taxableInterest.pristine && !f.submitted">
+                    Taxable Interest Amount is required.
+                    </small>
+        </div>
+        <div>
+            <label>Unemployment Benefits Amount</label>
+            <input type="number" name="unemploymentBenefits" [(ngModel)]="data.unemploymentBenefits" #unemploymentBenefits="ngModel"
+                required>
+            <small [hidden]="unemploymentBenefits.pristine && !f.submitted">
+                Unemployment Benefits Amount is required.
+                </small>
+        </div>
+        <div>
+            <label>Check if you can be claimed as someone's dependent.</label>
+            <input type="checkbox" name="dependent" [(ngModel)]="data.dependent" #dependent="ngModel">
+        </div>
         <button type="submit">Submit</button>
     </form>
 </div>
