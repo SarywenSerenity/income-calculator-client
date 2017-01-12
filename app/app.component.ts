@@ -1,11 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Injectable } from '@angular/core';
 import { incomeData } from './income-data.interface';
+import { incomeDataService } from './income-data.service';
 
 @Component({
   moduleId: module.id,
   selector: 'income-calculator',
   templateUrl: 'app.component.html',
 })
+@Injectable()
 export class AppComponent implements OnInit {
   public data: incomeData; // our model
 
@@ -17,15 +19,17 @@ export class AppComponent implements OnInit {
       unemploymentBenefits: null, 
       filingStatus: {
         primary: '', 
-        secondary: ''
+        secondary: '',
+        tertiary: ''
       },
       dependent: null
     }
   }
 
   save(model: incomeData, isValid: boolean) {
-    // check if model is valid
-    // if valid, call API to save customer
-    console.log(model, isValid);
+    
+    @Inject('incomeDataService');
+  
+    console.log(JSON.stringify(model), isValid);
   }
 }
