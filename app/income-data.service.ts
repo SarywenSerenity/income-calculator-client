@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { incomeData } from './income-data.interface';
 import { Observable } from 'rxjs/Observable';
+
 @Injectable()
 export class incomeDataService {
     private calculatorUrl = '@localhost:1152/refundOrPayment';  // URL to web API
